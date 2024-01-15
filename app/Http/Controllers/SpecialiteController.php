@@ -29,7 +29,13 @@ class SpecialiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'type' => 'required|unique:specialites',
+        ]);
+        $sp = new Specialite();
+        $sp->type = $request->input('type');
+        $sp->save();
+        return redirect()->back()->with('success', 'Specialite enregistrez avec success!');
     }
 
     /**

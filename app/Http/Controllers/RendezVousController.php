@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Medecin;
+use App\Models\Patient;
 use App\Models\RendezVous;
 use Illuminate\Http\Request;
 
@@ -13,7 +15,9 @@ class RendezVousController extends Controller
     public function index()
     {
         $rendezvouss = RendezVous::all();
-        return view('layouts.rendezvous', compact('rendezvouss'));
+        $medecins = Medecin::all();
+        $patients = Patient::all();
+        return view('layouts.rendezvous', compact('rendezvouss', 'medecins', 'patients'));
     }
 
     /**

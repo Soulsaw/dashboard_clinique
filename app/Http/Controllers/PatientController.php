@@ -34,7 +34,7 @@ class PatientController extends Controller
         $request->validate([
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
-            'number' => 'required|max:20|unique',
+            'number' => 'required|max:20|unique:patients',
         ]);
 
         $patient = new Patient();

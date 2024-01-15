@@ -1,5 +1,11 @@
 @extends('layouts.master')
 @section('root')
+
+@if(session()->has('success'))
+  <div class="text-success">
+    {{ session()->get('success') }}
+  </div>
+@endif
 <div class="col-md-12">
 <div class="card">
     <div class="card-header">
@@ -38,27 +44,19 @@
     <form>
       <div class="card-body">
       <div class="form-group">
-          <label>Nom Medeciens</label>
+          <label>Nom Medecin</label>
           <select class="form-control select2" style="width: 100%;">
-            <option selected="selected">Alabama</option>
-            <option>Alaska</option>
-            <option>California</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+          @foreach($medecins as $medecin)
+            <option value="{{ $medecin->id }}">{{ $medecin->last_name }} {{ $medecin->first_name }}</option>
+          @endforeach
           </select>
         </div>
         <div class="form-group">
-          <label>Nom Patienst</label>
+          <label>Nom Patient</label>
           <select class="form-control select2" style="width: 100%;">
-            <option selected="selected">Alabama</option>
-            <option>Alaska</option>
-            <option>California</option>
-            <option>Delaware</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Washington</option>
+          @foreach($patients as $patient)
+            <option value="{{ $patient->id }}">{{ $patient->last_name }} {{ $patient->first_name }}</option>
+          @endforeach
           </select>
         </div>
         <div class="form-group">

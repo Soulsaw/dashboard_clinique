@@ -24,4 +24,5 @@ Route::get('/patients', [PatientController::class, 'index']);
 Route::post('/patients', [PatientController::class, 'store'])->name('patients.create');
 Route::get('/medecins', [MedecinController::class, 'index']);
 Route::get('/specialites', [SpecialiteController::class, 'index']);
+Route::post('/specialites', [SpecialiteController::class, 'store'])->name('specialites.create');
 Route::get('/rendezvous', [RendezVousController::class, 'index']);

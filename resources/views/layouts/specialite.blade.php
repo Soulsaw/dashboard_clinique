@@ -1,5 +1,10 @@
 @extends('layouts.master')
 @section('root')
+@if(session()->has('success'))
+  <div class="text-success">
+    {{ session()->get('success') }}
+  </div>
+@endif
 <div class="col-md-12">
 <div class="card">
     <div class="card-header">
@@ -32,14 +37,18 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form>
+    <form action="{{ route('specialites.create') }}" method="post">
+      @csrf
       <div class="card-body">
         <div class="form-group">
           <label for="exampleInputEmail1">Type de specialite</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter nom">
+          <input type="text" class="form-control" id="type" name="type" placeholder="Enter la specialite" value="{{ old('number') }}">
+          @error('type')
+          <div class="text-danger">{{ $message }}</div>
+          @enderror
         </div>
         <div class="card-footer">
-         <button type="submit" class="btn btn-primary">Enregistrer</button>
+         <button type="submit" class="btn btn-primary">save</button>
         </div>
       </div>
     </form>

@@ -1,19 +1,12 @@
 @extends('layouts.master')
 @section('root')
-<div class="col-md-12">
-  @if(session()->has('success'))
-  <p>
+@if(session()->has('success'))
+  <div class="text-success">
     {{ session()->get('success') }}
-  </p>
-  @endif
+  </div>
+@endif
+<div class="col-md-12">
 
-  @if ($errors->any())
-  <ul>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-  </ul>
-  @endif
   <!-- general form elements -->
   <div class="card">
     <div class="card-header">
@@ -56,26 +49,26 @@
           <label for="exampleInputEmail1">Nom</label>
           <input type="text" class="form-control" id="first_name" name="first_name" value="{{ old('first_name') }}">
           @error('first_name')
-          <div>{{ $message }}</div>
+          <div class="text-danger">{{ $message }}</div>
           @enderror
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Prenom</label>
           <input type="text" class="form-control" id="last_name" name="last_name" value="{{ old('last_name') }}">
           @error('last_name')
-          <div>{{ $message }}</div>
+          <div class="text-danger">{{ $message }}</div>
           @enderror
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Numero Patient</label>
           <input type="text" class="form-control" id="number" name="number" value="{{ old('number') }}">
           @error('number')
-          <div>{{ $message }}</div>
+          <div class="text-danger">{{ $message }}</div>
           @enderror
         </div>
       </div>
       <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <button type="submit" class="btn btn-primary">save</button>
       </div>
     </form>
   </div>

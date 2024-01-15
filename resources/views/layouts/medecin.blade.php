@@ -1,5 +1,11 @@
 @extends('layouts.master')
 @section('root')
+
+@if(session()->has('success'))
+  <div class="text-success">
+    {{ session()->get('success') }}
+  </div>
+@endif
 <div class="col-md-12">
   <!-- general form elements -->
   <div class="card">
