@@ -22,7 +22,13 @@ Route::get('/', function () {
 });
 Route::get('/patients', [PatientController::class, 'index']);
 Route::post('/patients', [PatientController::class, 'store'])->name('patients.create');
+
 Route::get('/medecins', [MedecinController::class, 'index']);
+Route::post('/medecins', [MedecinController::class, 'store'])->name('medecins.create');
+
 Route::get('/specialites', [SpecialiteController::class, 'index']);
 Route::post('/specialites', [SpecialiteController::class, 'store'])->name('specialites.create');
+
+
 Route::get('/rendezvous', [RendezVousController::class, 'index']);
+Route::post('/rendezvous', [RendezVousController::class, 'store'])->name('rendezvous.create');
