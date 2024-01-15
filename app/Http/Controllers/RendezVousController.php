@@ -33,7 +33,19 @@ class RendezVousController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'patient_id' => 'required',
+            'medecin_id' => 'required',
+            'date'=> 'required',
+        ]);
+
+        $rendezvous = new RendezVous();
+        $rendezvous->medecin_id = $request->input('medecin_id');
+        $rendezvous->patient_id = $request->input('patient_id');
+        $rendezvous->date = $request->input('date');
+        $rendezvous->save();
+
+        return redirect()->back()->with('success', 'rendezvous enregistrez avec success!');
     }
 
     /**

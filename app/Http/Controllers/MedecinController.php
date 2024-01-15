@@ -31,7 +31,19 @@ class MedecinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'specialite_id' => 'required:specialites',
+        ]);
+
+        $medecin = new Medecin();
+        $medecin->first_name = $request->input('first_name');
+        $medecin->last_name = $request->input('last_name');
+        $medecin->specialite_id = $request->input('specialite_id');
+        $medecin->save();
+
+        return redirect()->back()->with('success', 'medecin enregistrez avec success!');
     }
 
     /**
@@ -39,8 +51,7 @@ class MedecinController extends Controller
      */
     public function show(Medecin $medecin)
     {
-        $medecins = Medecin::all();
-        return view('layouts.medecin', compact('medecins'));
+       
     }
 
     /**

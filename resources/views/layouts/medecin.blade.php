@@ -43,26 +43,36 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form>
+    <form action="{{ route('medecins.create') }}" method="post">
+      @csrf
       <div class="card-body">
         <div class="form-group">
           <label for="exampleInputname1">Nom</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter nom">
+          <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter nom">
+          @error('first_name')
+          <div class="text-danger">{{ $message }}</div>
+          @enderror
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Prenom</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter prenom">
+          <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter prenom">
+          @error('last_name')
+          <div class="text-danger">{{ $message }}</div>
+          @enderror
         </div>
         <div class="form-group">
           <label>Sepecialite</label>
           <select class="form-control select2" style="width: 100%;">
           @foreach($specialites as $specialite)
-            <option value="{{ $specialite->id }}">{{ $specialite->type }}</option>
+            <option  value="{{ $specialite->id }}">{{ $specialite->type }}</option>
           @endforeach
           </select>
+          @error('specialite_id')
+          <div class="text-danger">{{ $message }}</div>
+          @enderror
         </div>
         <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Enregistrer</button>
+          <button type="submit" class="btn btn-primary">save</button>
         </div>
       </div>
     </form>
