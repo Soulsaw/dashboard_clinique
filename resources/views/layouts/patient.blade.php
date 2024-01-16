@@ -1,16 +1,20 @@
 @extends('layouts.master')
 @section('root')
 @if(session()->has('success'))
-  <div class="text-success">
-    {{ session()->get('success') }}
-  </div>
+<div class="m-6 text-success ">
+  {{ session()->get('success') }}
+</div>
 @endif
 <div class="col-md-12">
-
   <!-- general form elements -->
-  <div class="card">
+  <div class="card card-info">
     <div class="card-header">
       <h3 class="card-title">Liste des patients</h3>
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+      </div>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -21,6 +25,7 @@
             <th>Nom</th>
             <th>Prenom</th>
             <th>Numero</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +35,7 @@
             <td>{{ $patient->first_name }}</td>
             <td>{{ $patient->last_name }}</td>
             <td>{{ $patient->number }}</td>
+            <td><button type="submit" class="btn btn-primary">rappel</button></td>
           </tr>
           @endforeach
         </tbody>

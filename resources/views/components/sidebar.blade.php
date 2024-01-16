@@ -1,8 +1,8 @@
-<aside class="main-sidebar sidebar-dark-secondary elevation-4">
+<aside class="main-sidebar sidebar-dark-secondary elevation-0">
     <!-- Brand Logo -->
-    <a href="{{ route('home') }}" class="brand-link">
-        <img src="dist/img/logo_epo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Clinique</span>
+    <a href="{{ route('home') }}" class="brand-link bg-white">
+        <img src="dist/img/logo_epo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-0" style="opacity: 1">
+        <span class="brand-text font-weight-bold text-primary">Clinique</span>
     </a>
     <!-- Sidebar -->
     <div class="sidebar">

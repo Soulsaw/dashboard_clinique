@@ -1,14 +1,19 @@
 @extends('layouts.master')
 @section('root')
 @if(session()->has('success'))
-  <div class="text-success">
-    {{ session()->get('success') }}
-  </div>
+<div class="text-success">
+  {{ session()->get('success') }}
+</div>
 @endif
 <div class="col-md-12">
-<div class="card">
+  <div class="card card-info">
     <div class="card-header">
-      <h3 class="card-title">Liste des Specialites</h3>
+      <h3 class="card-title">Liste des Secialites</h3>
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+      </div>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -48,7 +53,7 @@
           @enderror
         </div>
         <div class="card-footer">
-         <button type="submit" class="btn btn-primary">save</button>
+          <button type="submit" class="btn btn-primary">save</button>
         </div>
       </div>
     </form>

@@ -38,7 +38,7 @@ class RendezVousController extends Controller
             'medecin_id' => 'required',
             'date'=> 'required',
         ]);
-
+        
         $rendezvous = new RendezVous();
         $rendezvous->medecin_id = $request->input('medecin_id');
         $rendezvous->patient_id = $request->input('patient_id');

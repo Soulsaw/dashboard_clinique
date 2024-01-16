@@ -2,15 +2,20 @@
 @section('root')
 
 @if(session()->has('success'))
-  <div class="text-success">
-    {{ session()->get('success') }}
-  </div>
+<div class="m-4 text-success ">
+  {{ session()->get('success') }}
+</div>
 @endif
 <div class="col-md-12">
   <!-- general form elements -->
-  <div class="card">
+  <div class="card card-info">
     <div class="card-header">
-      <h3 class="card-title">Liste des medecin</h3>
+      <h3 class="card-title">Liste des medecins</h3>
+      <div class="card-tools">
+        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+          <i class="fas fa-minus"></i>
+        </button>
+      </div>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
@@ -63,9 +68,9 @@
         <div class="form-group">
           <label>Sepecialite</label>
           <select class="form-control select2" style="width: 100%;">
-          @foreach($specialites as $specialite)
-            <option  value="{{ $specialite->id }}">{{ $specialite->type }}</option>
-          @endforeach
+            @foreach($specialites as $specialite)
+            <option value="{{ $specialite->id }}">{{ $specialite->type }}</option>
+            @endforeach
           </select>
           @error('specialite_id')
           <div class="text-danger">{{ $message }}</div>

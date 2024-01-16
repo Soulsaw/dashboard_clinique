@@ -11,16 +11,6 @@ class RendezVous extends Model
 {
     use HasFactory;
 
-    public function medecins(): HasMany
-    {
-        return $this->hasMany((Medecin::class));
-    }
-
-    public function patients(): HasMany
-    {
-        return $this->hasMany((Patient::class));
-    }
-
     public function medecin(): BelongsTo
     {
         return $this->belongsTo((Medecin::class));
